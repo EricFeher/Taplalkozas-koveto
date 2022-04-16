@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "584540311979",
+    "project_id": "taplalekkoveto",
+    "storage_bucket": "taplalekkoveto.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:584540311979:android:d6d8984f6520d042f182ee",
+        "android_client_info": {
+          "package_name": "com.example.taplalkozaskoveto"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "584540311979-gjm87d7f9gmcmka1euamc9bcslvp57vv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.taplalkozaskoveto",
+            "certificate_hash": "418dcd284ac68ef5a030eaa1ab3d2c853c63f15b"
+          }
+        },
+        {
+          "client_id": "584540311979-ehcu8ghofr7rmp9n44lpqhcc34jt8dqs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmvuQWK7tt3RDUOd0RleDhDAWQU6ZZbws"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "584540311979-ehcu8ghofr7rmp9n44lpqhcc34jt8dqs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

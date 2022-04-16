@@ -9,4 +9,10 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="email">Email</string>
     <string name="cancel">Cancel</string>
+    <string name="calories">Calories (kcal)</string>
+    <string name="protein_g">Protein (g)</string>
+    <string name="fiber_g">Fiber (g)</string>
+    <string name="fat_g">Fat (g)</string>
+    <string name="food_name">Food Name</string>
+    <string name="add">Add</string>
 </resources>

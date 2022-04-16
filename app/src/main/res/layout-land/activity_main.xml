@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 <LinearLayout
@@ -22,15 +23,16 @@
         android:textSize="34sp" />
 
     <EditText
-        android:id="@+id/editTextUsername"
+        android:id="@+id/editTextEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_gravity="center"
         android:ems="10"
-        android:hint="@string/username"
-        android:inputType="text"
-        android:minHeight="48dp" />
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/editTextPassword"
@@ -41,7 +43,8 @@
         android:inputType="textPassword"
         android:minHeight="48dp"
         android:layout_marginTop="20dp"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:autofillHints="" />
 
     <Button
         android:id="@+id/buttonLogin"
@@ -51,7 +54,7 @@
         android:layout_marginTop="20dp"
         android:layout_gravity="center"
         android:text="@string/login"
-       />
+        tools:ignore="UsingOnClickInXml" />
 
     <Button
         android:id="@+id/buttonRegister"
@@ -66,7 +69,8 @@
         app:layout_constraintTop_toBottomOf="@+id/buttonLogin"
         app:layout_constraintVertical_bias="0.077"
         android:layout_marginTop="20dp"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        tools:ignore="UsingOnClickInXml" />
 
 </LinearLayout>
 </ScrollView>
