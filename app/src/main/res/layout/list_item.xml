@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="15dp"
+    android:background="@color/black">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:text="@string/name"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/calories"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/name"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:text="@string/calories"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/fat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/calories"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:text="@string/fat_g"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/protein"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fat"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:text="@string/protein_g"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/fiber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/protein"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:text="@string/fiber_g"
+            android:textColor="@color/black"/>
+
+        <Button
+            android:id="@+id/delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fiber"
+            android:layout_centerHorizontal="true"
+            android:text="@string/delete" />
+
+        <Button
+            android:id="@+id/update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/delete"
+            android:layout_centerHorizontal="true"
+            android:text="@string/update" />
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
