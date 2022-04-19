@@ -23,4 +23,9 @@
     <string name="search">Search</string>
     <string name="mai_beviteled">Today\'s Intake</string>
     <string name="number_of_records">Number of all records</string>
+    <string name="preferred_calories">Preferred Calories:</string>
+    <string name="preferred_protein">Preferred Protein:</string>
+    <string name="preferred_fiber">Preferred fiber:</string>
+    <string name="preferred_fat">Preferred Fat:</string>
+    <string name="back">Back</string>
 </resources>

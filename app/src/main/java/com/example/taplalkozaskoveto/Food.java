@@ -1,6 +1,7 @@
 package com.example.taplalkozaskoveto;
 
 public class Food {
+    private String id;
     private String UID;
     private String name;
     private double calories;
@@ -55,5 +56,13 @@ public class Food {
 
     public double getFat() {
         return fat;
+    }
+
+    public String _getId() {
+        return id;
+    }
+
+    public void setId(String id){
+        this.id=id;
     }
 }

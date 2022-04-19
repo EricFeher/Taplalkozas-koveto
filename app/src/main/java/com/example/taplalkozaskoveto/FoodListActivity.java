@@ -8,11 +8,15 @@ import android.annotation.SuppressLint;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -78,12 +82,38 @@ public class FoodListActivity extends AppCompatActivity {
         initializeData();
     }
 
+    public void deleteItem(Food item) {
+        DocumentReference ref = mItems.document(item._getId());
+        ref.delete()
+                .addOnSuccessListener(success -> {
+                    Log.d(LOG_TAG, "Item is successfully deleted: " + item._getId());
+                    initializeData();
+                })
+                .addOnFailureListener(fail -> {
+                    Toast.makeText(this, "Item " + item._getId() + " cannot be deleted.", Toast.LENGTH_LONG).show();
+                });
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.back_menu,menu);
+        return true;
+    }
+
+    @SuppressLint("NonConstantResourceId")
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        finish();
+        return true;
+    }
     @SuppressLint("NotifyDataSetChanged")
     private void initializeData() {
         Log.d(LOG_TAG,"UserID: "+user.getUid()+" Date: "+year+"/"+month+"/"+day);
+        itemList.clear();
         mItems.whereEqualTo("uid",user.getUid()).whereEqualTo("date",year+"/"+month+"/"+day).get().addOnSuccessListener(queryDocumentSnapshots -> {
             for(QueryDocumentSnapshot document: queryDocumentSnapshots){
                 Food item = document.toObject(Food.class);
+                item.setId(document.getId());
                 itemList.add(item);
                 Log.d(LOG_TAG,"Get data from database "+item.getName()+" "+item.getDate());
             }

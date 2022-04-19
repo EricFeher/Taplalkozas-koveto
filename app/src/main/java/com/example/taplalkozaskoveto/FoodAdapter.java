@@ -112,15 +112,6 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> im
             mProtein=itemView.findViewById(R.id.protein);
             mFiber=itemView.findViewById(R.id.fiber);
             Log.d("VIEWHOLDER","Lefutottam");
-            itemView.findViewById(R.id.delete).setOnClickListener(view -> {
-                Log.d("Activity","Delete from database");
-                //TODO DELETE 8. Videó
-            });
-
-            itemView.findViewById(R.id.update).setOnClickListener(view -> {
-                Log.d("Activity","Update item database");
-                //TODO UPDATE
-            });
         }
 
         @SuppressLint("SetTextI18n")
@@ -131,6 +122,11 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> im
             mProtein.setText("Protein (g): "+currentItem.getProtein());
             mFiber.setText("Fiber (g): "+currentItem.getFiber());
             Log.d("bindTo: ",currentItem.getName());
+
+            itemView.findViewById(R.id.delete).setOnClickListener(view -> {
+                Log.d("Activity","Delete from database");
+                ((FoodListActivity)mContext).deleteItem(currentItem);
+            });
         }
     }
 }

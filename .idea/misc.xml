@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Documents/SZTE/SZTE/4. felev/Mobkom/Project/Taplalkozas-koveto/app/src/main/res/drawable/ic_back.xml" value="0.1135" />
         <entry key="..\:/Documents/SZTE/SZTE/4. felev/Mobkom/Project/Taplalkozas-koveto/app/src/main/res/layout-land/activity_insert.xml" value="0.1" />
         <entry key="..\:/Documents/SZTE/SZTE/4. felev/Mobkom/Project/Taplalkozas-koveto/app/src/main/res/layout-land/activity_main.xml" value="0.17901234567901234" />
         <entry key="..\:/Documents/SZTE/SZTE/4. felev/Mobkom/Project/Taplalkozas-koveto/app/src/main/res/layout-land/activity_register.xml" value="0.1" />
@@ -10,7 +11,9 @@
         <entry key="..\:/Documents/SZTE/SZTE/4. felev/Mobkom/Project/Taplalkozas-koveto/app/src/main/res/layout/activity_insert.xml" value="0.264" />
         <entry key="..\:/Documents/SZTE/SZTE/4. felev/Mobkom/Project/Taplalkozas-koveto/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Documents/SZTE/SZTE/4. felev/Mobkom/Project/Taplalkozas-koveto/app/src/main/res/layout/activity_register.xml" value="0.2368659420289855" />
+        <entry key="..\:/Documents/SZTE/SZTE/4. felev/Mobkom/Project/Taplalkozas-koveto/app/src/main/res/layout/activity_update.xml" value="0.17916666666666667" />
         <entry key="..\:/Documents/SZTE/SZTE/4. felev/Mobkom/Project/Taplalkozas-koveto/app/src/main/res/layout/list_item.xml" value="0.2" />
+        <entry key="..\:/Documents/SZTE/SZTE/4. felev/Mobkom/Project/Taplalkozas-koveto/app/src/main/res/menu/back_menu.xml" value="0.13125" />
         <entry key="..\:/Documents/SZTE/SZTE/4. felev/Mobkom/Project/Taplalkozas-koveto/app/src/main/res/menu/food_list_menu.xml" value="0.23854166666666668" />
       </map>
     </option>

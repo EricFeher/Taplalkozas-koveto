@@ -67,13 +67,5 @@
             android:layout_centerHorizontal="true"
             android:text="@string/delete" />
 
-        <Button
-            android:id="@+id/update"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/delete"
-            android:layout_centerHorizontal="true"
-            android:text="@string/update" />
-
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

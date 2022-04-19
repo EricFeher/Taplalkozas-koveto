@@ -13,6 +13,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -50,6 +51,7 @@ public class InsertActivity extends AppCompatActivity {
 
     private FirebaseFirestore mFirestore;
     private CollectionReference mItems;
+    private CollectionReference mPreferences;
 
     private NotificationHandler mNotificationHandler;
     @SuppressLint("StaticFieldLeak")
@@ -84,9 +86,11 @@ public class InsertActivity extends AppCompatActivity {
 
         mFirestore = FirebaseFirestore.getInstance();
         mItems = mFirestore.collection("Items");
+        mPreferences = mFirestore.collection("UserPreferences");
         mNotificationHandler=new NotificationHandler(this);
     }
 
+    @SuppressLint("SetTextI18n")
     private void getInformations(){
         final Calendar c = Calendar.getInstance();
         int year = c.get(Calendar.YEAR);
@@ -110,10 +114,20 @@ public class InsertActivity extends AppCompatActivity {
             proteinAll.setText(protein+"");
             fatAll.setText(fat+"");
             fiberAll.setText(fiber+"");
+            mPreferences.whereEqualTo("uid",user.getUid()).get().addOnSuccessListener(queryDocumentSnapshots2 -> {
+                Preferences item = queryDocumentSnapshots2.getDocuments().get(0).toObject(Preferences.class);
+                if (item != null) {
+                    this.caloriesAll.setText(caloriesAll.getText()+"/"+(int)item.getCalories() + "");
+                    this.proteinAll.setText(proteinAll.getText()+"/"+(int)item.getProtein() + "");
+                    this.fatAll.setText(fatAll.getText()+"/"+(int)item.getFat() + "");
+                    this.fiberAll.setText(fiberAll.getText()+"/"+(int)item.getFiber() + "");
+                }
+            });
         });
         mItems.whereEqualTo("uid",user.getUid()).get().addOnSuccessListener(queryDocumentSnapshots -> {
             sumAll.setText(queryDocumentSnapshots.size()+"");
         });
+
     }
 
     @Override
@@ -125,11 +139,31 @@ public class InsertActivity extends AppCompatActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void addFood(View view) {
-        String foodName=this.foodName.getText().toString().isEmpty() ? "None" : this.foodName.getText().toString();
-        double calories=Double.parseDouble(this.calories.getText().toString().isEmpty() ? 0+"" : this.calories.getText().toString());
-        double protein=Double.parseDouble(this.protein.getText().toString().isEmpty() ? 0+"" : this.protein.getText().toString());
-        double fiber=Double.parseDouble(this.fiber.getText().toString().isEmpty() ? 0+"" : this.fiber.getText().toString());
-        double fat=Double.parseDouble(this.fat.getText().toString().isEmpty() ? 0+"" : this.fat.getText().toString());
+        if (this.foodName.getText().toString().isEmpty()){
+            this.foodName.setError("It can't be empty!");
+            return;
+        }
+        if (this.calories.getText().toString().isEmpty()){
+            this.calories.setError("It can't be empty!");
+            return;
+        }
+        if (this.protein.getText().toString().isEmpty()){
+            this.protein.setError("It can't be empty!");
+            return;
+        }
+        if (this.fiber.getText().toString().isEmpty()){
+            this.fiber.setError("It can't be empty!");
+            return;
+        }
+        if (this.fat.getText().toString().isEmpty()){
+            this.fat.setError("It can't be empty!");
+            return;
+        }
+        String foodName=this.foodName.getText().toString();
+        double calories=Double.parseDouble(this.calories.getText().toString());
+        double protein=Double.parseDouble(this.protein.getText().toString());
+        double fiber=Double.parseDouble(this.fiber.getText().toString());
+        double fat=Double.parseDouble(this.fat.getText().toString());
 
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
@@ -159,8 +193,7 @@ public class InsertActivity extends AppCompatActivity {
                 return true;
             case R.id.settings:
                 Log.d(LOG_TAG, "Setting clicked!");
-                FirebaseAuth.getInstance().signOut();
-                finish();
+                startUpdateActivity();
                 return true;
             case R.id.calendar:
                 Log.d(LOG_TAG, "Calendar clicked!");
@@ -171,6 +204,10 @@ public class InsertActivity extends AppCompatActivity {
         }
     }
 
+    public static void startUpdateActivity(){
+        Intent intent=new Intent(mContext, UpdateActivity.class);
+        mContext.startActivity(intent);
+    }
 
     public static void startFoodListActivity(int year, int month, int day){
         Intent intent=new Intent(mContext, FoodListActivity.class);
@@ -188,6 +225,7 @@ public class InsertActivity extends AppCompatActivity {
     public static class DatePickerFragment extends DialogFragment
             implements DatePickerDialog.OnDateSetListener {
 
+        @NonNull
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             // Use the current date as the default date in the picker
